@@ -37,8 +37,23 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
+    'registration',
+    'login',
     #'django.contrib.flatpages',
 )
+
+ACCOUNT_ACTIVATION_DAYS = 7 # One-week activation window; you may, of course, use a different value.
+REGISTRATION_AUTO_LOGIN = True # Automatically log the user in.
+LOGIN_REDIRECT_URL = '/'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+#EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+#EMAIL_HOST_USER = 'jinggeqianyu1991@gmail.com'
+#EMAIL_HOST_PASSWORD = 'qsjy81zwxy'
+EMAIL_PORT = 465
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -56,7 +71,7 @@ ROOT_URLCONF = 'HealthU.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [ os.path.join(os.path.dirname('__file__'), "templates") ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -82,7 +97,7 @@ DATABASES = {
     }
 }
 
-
+SITE_ID = 1
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
 
@@ -119,7 +134,8 @@ TEMPLATE_DIRS = (
     # Don't forget to use absolute paths, not relative paths.
 )
 
-TEMPLATE_DIRS += (os.path.join(os.path.dirname(__file__), 'templates') ,)
+#TEMPLATE_DIRS += (os.path.join(os.path.dirname(__file__), 'templates') ,)
+REGISTRATION_TEMPLATE_DIR = os.path.join(os.path.dirname(__file__), "templates")
 
 LOGGING = {
     'version': 1,

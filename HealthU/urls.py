@@ -14,9 +14,20 @@ Including another URLconf
     2. Add a URL to urlpatterns:  url(r'^blog/', include(blog_urls))
 """
 from django.conf.urls import include, url
+from login.models import *
+
 from django.contrib import admin
 admin.autodiscover()
 
+# <-- Add this later -->
+# Routers provide an easy way of automatically determining the URL conf.
+#router = routers.DefaultRouter()
+#router.register(r'order', viewset.OrderViewSet)
+
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^accounts/', include('registration.backends.default.urls')),
+    #url(r'^login/', include(login.urls)),
 ]
+
+#urlpatterns += staticfiles_urlpatterns()
