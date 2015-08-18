@@ -1,2 +1,2 @@
 # HealthU
-## Django, MongoDB, Nginx
+## Django
