@@ -27,7 +27,7 @@ admin.autodiscover()
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^accounts/', include('registration.backends.default.urls')),
-    #url(r'^login/', include(login.urls)),
+    url(r'^info/', include('info.urls')),
 ]
 
 #urlpatterns += staticfiles_urlpatterns()

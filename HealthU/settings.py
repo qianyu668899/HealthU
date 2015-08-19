@@ -39,7 +39,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.sites',
     'registration',
-    'login',
+    'info',
     #'django.contrib.flatpages',
 )
 
@@ -125,6 +125,8 @@ STATIC_ROOT = (
 )
 
 STATICFILE_DIRS = (
+
+     os.path.join(os.path.dirname(__file__), 'static/')
 
 )
 
