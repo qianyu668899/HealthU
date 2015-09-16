@@ -72,7 +72,7 @@ ROOT_URLCONF = 'HealthU.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [ os.path.join(os.path.dirname(__file__), 'templates')],
+        'DIRS': [os.path.join(os.path.dirname(__file__), 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -91,15 +91,11 @@ WSGI_APPLICATION = 'HealthU.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
 
-#DATABASES = {
-#    'default': {
-#        'ENGINE': 'django.db.backends.sqlite3',
-#        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#    }
-#}
-
 DATABASES = {
-    'default': dj_database_url.config()
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
 }
 
 SITE_ID = 1
@@ -122,27 +118,9 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATIC_ROOT = (
-    # Put strings here, like "/home/html/static" or "C:/www/django/static".
-    # Always use forward slashes, even on Windows.
-    # Don't forget to use absolute paths, not relative paths.
-    # os.path.join(os.path.dirname(__file__), 'static/')
-)
+STATIC_ROOT = os.path.join(os.path.dirname(__file__), 'static/')
 
-STATICFILE_DIRS = (
-
-     os.path.join(os.path.dirname(__file__), 'static')
-
-)
-
-TEMPLATE_DIRS = (
-    # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
-    # Always use forward slashes, even on Windows.
-    # Don't forget to use absolute paths, not relative paths.
-)
-
-#TEMPLATE_DIRS += (os.path.join(os.path.dirname(__file__), 'templates') ,)
-REGISTRATION_TEMPLATE_DIR = os.path.join(os.path.dirname(__file__), 'templates')
+REGISTRATION_TEMPLATE_DIR = os.path.join(os.path.dirname(__file__), 'templates/')
 
 LOGGING = {
     'version': 1,
