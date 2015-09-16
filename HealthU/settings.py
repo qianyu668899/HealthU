@@ -26,7 +26,8 @@ SECRET_KEY = '9&#j9jjkn8p&hd^h@bk3ki@g*=5z5$4&qmrh^ju&m3$!4p6+_y'
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
+# Parse database configuration from $DATABASE_URL
+import dj_database_url
 
 # Application definitionTEMPLATE_DIRS += (os.path.join(os.path.dirname("__file__"), 'templates') ,)
 
@@ -71,7 +72,7 @@ ROOT_URLCONF = 'HealthU.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [ os.path.join(os.path.dirname('__file__'), "templates") ],
+        'DIRS': [ os.path.join(os.path.dirname(__file__), 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -90,11 +91,15 @@ WSGI_APPLICATION = 'HealthU.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
 
+#DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.sqlite3',
+#        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#    }
+#}
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
+    'default': dj_database_url.config()
 }
 
 SITE_ID = 1
@@ -137,7 +142,7 @@ TEMPLATE_DIRS = (
 )
 
 #TEMPLATE_DIRS += (os.path.join(os.path.dirname(__file__), 'templates') ,)
-REGISTRATION_TEMPLATE_DIR = os.path.join(os.path.dirname(__file__), "templates")
+REGISTRATION_TEMPLATE_DIR = os.path.join(os.path.dirname(__file__), 'templates')
 
 LOGGING = {
     'version': 1,

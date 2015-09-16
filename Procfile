@@ -1,1 +1,1 @@
-web: ./run
+web: gunicorn HealthU.wsgi --log-file -
