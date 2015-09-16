@@ -120,6 +120,10 @@ STATIC_URL = '/static/'
 
 STATIC_ROOT = os.path.join(os.path.dirname(__file__), 'static/')
 
+STATICFILES_DIRS = (
+    (os.path.join(os.path.dirname(__file__), 'static/'),),
+)
+
 REGISTRATION_TEMPLATE_DIR = os.path.join(os.path.dirname(__file__), 'templates/')
 
 LOGGING = {
