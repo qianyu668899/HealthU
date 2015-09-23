@@ -47,6 +47,7 @@ INSTALLED_APPS = (
 ACCOUNT_ACTIVATION_DAYS = 7 # One-week activation window; you may, of course, use a different value.
 REGISTRATION_AUTO_LOGIN = True # Automatically log the user in.
 LOGIN_REDIRECT_URL = '/'
+LOGIN_URL = '/accounts/login/'
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 #EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
@@ -120,9 +121,9 @@ STATIC_URL = '/static/'
 
 STATIC_ROOT = os.path.join(os.path.dirname(__file__), 'static/')
 
-STATICFILES_DIRS = (
-    (os.path.join(os.path.dirname(__file__), 'static/'),),
-)
+#STATICFILES_DIRS = (
+#    os.path.join(os.path.dirname(__file__), 'static/'),
+#)
 
 REGISTRATION_TEMPLATE_DIR = os.path.join(os.path.dirname(__file__), 'templates/')
 
